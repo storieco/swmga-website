@@ -38,7 +38,7 @@ details[open] .chev{transform:rotate(45deg)}
 #home-hero .hs2{object-position:52% 62% !important}
 #home-hero .hs3{object-position:34% 68% !important}
 #home-hero .hs4{object-position:50% 22% !important}
-#home-hero .hs5{top:236px !important;height:calc(66svh - 236px) !important;min-height:210px !important;object-position:50% 0% !important}
+#home-hero .hs5{top:256px !important;height:calc(66svh - 256px) !important;min-height:210px !important;object-position:50% 0% !important}
 #home-hero .hero-vignette,#home-hero .hero-fade-desk{display:none}
 #home-hero .hero-fade-mob{display:block !important;position:absolute;left:0;right:0;top:max(calc(66svh - 170px), 260px);height:172px;background:linear-gradient(180deg,rgba(18,13,9,0),#120D09 92%);z-index:1}
 #home-hero .hero-spacer{flex:none !important;min-height:max(calc(66svh - 300px), 150px) !important}
@@ -653,11 +653,11 @@ details[open] .chev{transform:rotate(45deg)}
 <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px">
 <span style="font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #8F5F2B">Members</span>
 <h1 style="margin: 0; font-family: Jost, sans-serif; font-weight: 300; font-size: clamp(38px, 4.6vw, 60px); line-height: 1">Hunt with<br>SWMNGA.</h1>
-<p style="margin: 0; color: #5A4E44; font-size: 17px">Approved members can see open properties across Georgia and apply to hunt them. Every member is reviewed by an admin before getting access, so landowners know exactly who is on their land.</p>
+<p style="margin: 0; color: #5A4E44; font-size: 17px">Every hunter is reviewed by an SWMNGA admin before joining the program, so landowners know exactly who is on their land. Admins assign approved hunters to properties and share the rules and access details directly.</p>
 <ul style="margin: 8px 0 0; padding-left: 20px; color: #5A4E44; display: flex; flex-direction: column; gap: 6px">
-<li>Browse open areas and contracts</li>
-<li>Apply in a few clicks and track your status</li>
-<li>Get property rules and access details once approved</li>
+<li>Request membership online</li>
+<li>Background check, interview and shooting test</li>
+<li>Approved hunters are assigned to properties by our admins</li>
 </ul>
 </div>
 <div style="flex: 1 1 420px; background: #FFFFFF; border-radius: 24px; padding: 32px; box-shadow: 0 10px 40px rgba(42,33,26,0.08)">
@@ -699,15 +699,15 @@ details[open] .chev{transform:rotate(45deg)}
 <sc-if value="{{isPending}}">
 <main style="max-width: 720px; margin: 0 auto; padding: 96px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px">
 <span style="width: 72px; height: 72px; border-radius: 50%; background: #F5EEE3; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8F5F2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-<h1 style="margin: 0; font-family: Jost, sans-serif; font-weight: 300; font-size: 46px; line-height: 1.05">Your request is in review.</h1>
+<h1 style="margin: 0; font-family: Jost, sans-serif; font-weight: 300; font-size: 46px; line-height: 1.05">{{pendingTitle}}</h1>
 <p style="margin: 0; color: #5A4E44; font-size: 17px">{{pendingText}}</p>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px">
+<sc-if value="{{showSteps}}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 8px">
 <span style="background: #FFFFFF; border-radius: 999px; padding: 8px 16px; font-size: 14px">&#10003; Request received</span>
 <span style="background: #FFFFFF; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #6B5E52">Background check</span>
 <span style="background: #FFFFFF; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #6B5E52">Interview</span>
 <span style="background: #FFFFFF; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #6B5E52">Shooting test</span>
 <span style="background: #FFFFFF; border-radius: 999px; padding: 8px 16px; font-size: 14px; color: #6B5E52">Approved</span>
-</div>
+</div></sc-if>
 <button type="button" onClick="{{signOut}}" style="margin-top: 12px; min-height: 46px; padding: 0 24px; border: 1px solid #3A2A1E; background: transparent; color: #3A2A1E; border-radius: 999px; font-weight: 600; cursor: pointer">Back to sign in</button>
 </main>
 </sc-if>
@@ -816,13 +816,13 @@ details[open] .chev{transform:rotate(45deg)}
 <h1 style="margin: 0; font-family: Jost, sans-serif; font-weight: 300; font-size: clamp(36px, 4vw, 54px); line-height: 1">Admin dashboard</h1>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <div style="background: #FFFFFF; border-radius: 14px; padding: 12px 18px"><div style="font-size: 12px; color: #6B5E52">Open contracts</div><div style="font-family: Jost, sans-serif; font-size: 26px">{{statOpen}}</div></div>
-<div style="background: #FFFFFF; border-radius: 14px; padding: 12px 18px"><div style="font-size: 12px; color: #6B5E52">Applications to review</div><div style="font-family: Jost, sans-serif; font-size: 26px">{{statApps}}</div></div>
+<div style="background: #FFFFFF; border-radius: 14px; padding: 12px 18px"><div style="font-size: 12px; color: #6B5E52">Hunters assigned</div><div style="font-family: Jost, sans-serif; font-size: 26px">{{statApps}}</div></div>
 <div style="background: #FFFFFF; border-radius: 14px; padding: 12px 18px"><div style="font-size: 12px; color: #6B5E52">Members awaiting approval</div><div style="font-family: Jost, sans-serif; font-size: 26px">{{statMembers}}</div></div>
 </div>
 </div>
 <div role="tablist" style="display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #E2D9CB">
 <button type="button" role="tab" aria-selected="{{atContractsSel}}" onClick="{{atContracts}}" style="min-height: 44px; padding: 0 16px; border: none; border-bottom: 3px solid {{atContractsLine}}; background: transparent; font-weight: 600; cursor: pointer">Contracts</button>
-<button type="button" role="tab" aria-selected="{{atAppsSel}}" onClick="{{atApps}}" style="min-height: 44px; padding: 0 16px; border: none; border-bottom: 3px solid {{atAppsLine}}; background: transparent; font-weight: 600; cursor: pointer">Applications</button>
+<button type="button" role="tab" aria-selected="{{atAppsSel}}" onClick="{{atApps}}" style="min-height: 44px; padding: 0 16px; border: none; border-bottom: 3px solid {{atAppsLine}}; background: transparent; font-weight: 600; cursor: pointer">Assignments</button>
 <button type="button" role="tab" aria-selected="{{atMembersSel}}" onClick="{{atMembers}}" style="min-height: 44px; padding: 0 16px; border: none; border-bottom: 3px solid {{atMembersLine}}; background: transparent; font-weight: 600; cursor: pointer">Members</button>
 </div>
 
@@ -863,15 +863,14 @@ details[open] .chev{transform:rotate(45deg)}
 </sc-if>
 
 <sc-if value="{{adminApps}}">
+<form onSubmit="{{assignHunter}}" style="background: #FFFFFF; border-radius: 20px; padding: 20px 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; margin-bottom: 14px"><label style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; flex: 1 1 240px">Property<select name="contract" required style="min-height: 44px; min-width: 240px; padding: 0 12px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"><option value="">Choose a property</option><option data-for="assignContracts" data-as="o" value="{{o.dbId}}">{{o.label}}</option></select></label><label style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; flex: 1 1 240px">Approved hunter<select name="member" required style="min-height: 44px; min-width: 240px; padding: 0 12px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"><option value="">Choose a hunter</option><option data-for="assignHunters" data-as="h" value="{{h.id}}">{{h.label}}</option></select></label><button type="submit" style="min-height: 44px; padding: 0 22px; border: none; background: #3A2A1E; color: #FFFFFF; border-radius: 999px; font-weight: 600; cursor: pointer">Assign hunter</button></form>
+<sc-if value="{{noAssignments}}"><p style="margin: 0 0 12px; color: #6B5E52">No hunters assigned yet. Approve hunters on the Members tab, then assign them to a property here.</p></sc-if>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div data-for="appRows" data-as="a" style="background: #FFFFFF; border-radius: 16px; padding: 18px 22px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
-<div style="display: flex; flex-direction: column"><span style="font-weight: 600">{{a.member}}</span><span style="font-size: 13px; color: #6B5E52">Applied to {{a.contractName}} ({{a.contractId}}) &#183; {{a.date}}</span></div>
+<div style="display: flex; flex-direction: column"><span style="font-weight: 600">{{a.member}}</span><span style="font-size: 13px; color: #6B5E52">Assigned to {{a.contractName}} ({{a.contractId}}) &#183; {{a.date}}</span></div>
 <div style="display: flex; align-items: center; gap: 10px">
 <span style="background: {{a.badgeBg}}; color: {{a.badgeColor}}; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px">{{a.status}}</span>
-<sc-if value="{{a.pending}}">
-<button type="button" onClick="{{a.approve}}" style="min-height: 38px; padding: 0 16px; border: none; background: #2F5D3A; color: #FFFFFF; border-radius: 999px; font-weight: 600; cursor: pointer">Approve</button>
-<button type="button" onClick="{{a.decline}}" style="min-height: 38px; padding: 0 16px; border: 1px solid #E2D9CB; background: #FFFFFF; border-radius: 999px; cursor: pointer">Decline</button>
-</sc-if>
+<button type="button" onClick="{{a.remove}}" style="min-height: 38px; padding: 0 16px; border: 1px solid #E2D9CB; background: #FFFFFF; border-radius: 999px; cursor: pointer">Remove</button>
 </div>
 </div>
 </div>
@@ -1073,7 +1072,7 @@ class Component extends DCLogic {
     super(props);
     this.state = { screen: 'loading', role: null, auth: 'signin', county: 'All counties', selId: null,
       adminTab: 'contracts', editing: false, draft: null, draftId: null, toast: '', toastErr: false,
-      me: null, contracts: [], apps: [], members: [], pendingText: '' };
+      me: null, contracts: [], apps: [], members: [], pendingText: '', pendingTitle: 'Your request is in review.', showSteps: true };
   }
   componentDidMount() {
     if (!sb && window.supabase) sb = window.supabase.createClient(window.SB_URL, window.SB_KEY);
@@ -1093,12 +1092,12 @@ class Component extends DCLogic {
   async afterAuth(session) {
     if (!session) { this.setState({ screen: 'signin' }); return; }
     const { data: me, error } = await sb.from('profiles').select('*').eq('id', session.user.id).maybeSingle();
-    if (error || !me) { this.setState({ screen: 'pending', pendingText: 'Your request is saved. An SWMNGA admin will review it soon.' }); return; }
+    if (error || !me) { this.setState({ screen: 'pending', pendingTitle: 'Your request is in review.', showSteps: true, pendingText: 'Your request is saved. An SWMNGA admin will review it soon.' }); return; }
     this.setState({ me: me, role: me.role });
     if (me.role === 'admin') { this.setState({ screen: 'admin' }); this.loadAdmin(); }
-    else if (me.status === 'Approved') { this.setState({ screen: 'board' }); this.loadMember(); }
-    else if (me.status === 'Declined') { this.setState({ screen: 'pending', pendingText: 'Your membership request was not approved. Email swmga.rs@gmail.com with any questions.' }); }
-    else { this.setState({ screen: 'pending', pendingText: 'Thanks for applying. An SWMNGA admin will verify your licenses and reach out about your background check, interview and shooting test. Sign in again any time to check your status.' }); }
+    else if (me.status === 'Approved') { this.setState({ screen: 'pending', pendingTitle: 'You are an approved hunter.', showSteps: false, pendingText: 'Welcome to SWMNGA. An admin will contact you directly when you are assigned to a property, with the property rules, stand locations and access details.' }); }
+    else if (me.status === 'Declined') { this.setState({ screen: 'pending', pendingTitle: 'Request not approved.', showSteps: false, pendingText: 'Your membership request was not approved. Email swmga.rs@gmail.com with any questions.' }); }
+    else { this.setState({ screen: 'pending', pendingTitle: 'Your request is in review.', showSteps: true, pendingText: 'Thanks for applying. An SWMNGA admin will verify your licenses and reach out about your background check, interview and shooting test. Sign in again any time to check your status.' }); }
   }
   mapContract(c) { return { id: c.code, dbId: c.id, name: c.name, county: c.county || '', type: c.type || '', acres: c.acres || 0, season: c.season || '', slots: c.slots || 0, filled: c.filled || 0, status: c.status, notes: c.notes || '' }; }
   async loadMember() {
@@ -1157,8 +1156,9 @@ class Component extends DCLogic {
         this.notify(d === 'Approved' ? a.member + ' approved for ' + (c.name || 'the contract') + '.' : 'Application declined.');
         this.loadAdmin();
       };
-      return Object.assign({}, a, { contractName: c.name || a.contractId, badgeBg: b[0], badgeColor: b[1], pending: a.status === 'Pending',
-        approve: decide('Approved'), decline: decide('Declined') });
+      return Object.assign({}, a, { contractName: c.name || a.contractId, badgeBg: b[0], badgeColor: b[1], pending: false, status: a.status === 'Approved' ? 'Assigned' : a.status,
+        approve: decide('Approved'), decline: decide('Declined'),
+        remove: async () => { const { error } = await sb.rpc('unassign_hunter', { p_assignment: a.id }); if (error) return this.notify(error.message, true); this.notify(a.member + ' removed from ' + (c.name || 'the property') + '.'); this.loadAdmin(); } });
     };
     const myApps = st.role === 'admin' ? [] : st.apps.map(decoApp);
     const at = st.adminTab;
@@ -1166,7 +1166,7 @@ class Component extends DCLogic {
     const first = st.me && st.me.full_name ? ', ' + st.me.full_name.split(' ')[0] : '';
     return {
       toast: st.toast, toastBg: st.toastErr ? '#8A3F2A' : '#2F5D3A', clearToast: () => this.setState({ toast: '' }),
-      isLoading: sc === 'loading', firstName: first, pendingText: st.pendingText,
+      isLoading: sc === 'loading', firstName: first, pendingText: st.pendingText, pendingTitle: st.pendingTitle, showSteps: st.showSteps,
       signedIn: !!st.me || sc === 'pending',
       isMemberNav: st.role === 'member' && (sc === 'board' || sc === 'detail' || sc === 'myapps'),
       isAdminNav: st.role === 'admin' && sc === 'admin',
@@ -1225,7 +1225,11 @@ class Component extends DCLogic {
       },
       myApps: myApps, noMyApps: myApps.length === 0,
       statOpen: st.contracts.filter((c) => c.status === 'Open').length,
-      statApps: st.apps.filter((a) => a.status === 'Pending').length,
+      statApps: st.apps.filter((a) => a.status === 'Approved').length,
+      noAssignments: st.role === 'admin' && st.apps.length === 0,
+      assignContracts: st.contracts.filter((c) => c.status === 'Open').map((c) => ({ dbId: c.dbId, label: c.id + ' \u00b7 ' + c.name + ' (' + Math.max(0, c.slots - c.filled) + ' open)' })),
+      assignHunters: st.members.filter((m) => m.status === 'Approved').map((m) => ({ id: m.id, label: m.name + (m.county ? ' \u00b7 ' + m.county : '') })),
+      assignHunter: async (e) => { if (e && e.preventDefault) e.preventDefault(); const fd = new FormData(e.target); const cid = parseInt(fd.get('contract'), 10); const mid = String(fd.get('member') || ''); if (!cid || !mid) return this.notify('Pick a property and a hunter first.', true); const { error } = await sb.rpc('assign_hunter', { p_contract: cid, p_member: mid }); if (error) return this.notify(error.message, true); this.notify('Hunter assigned. Contact them with the property rules and access details.'); this.loadAdmin(); },
       statMembers: st.members.filter((m) => m.status === 'Pending').length,
       adminContracts: at === 'contracts', adminApps: at === 'apps', adminMembers: at === 'members',
       atContracts: () => this.setState({ adminTab: 'contracts' }), atApps: () => this.setState({ adminTab: 'apps' }), atMembers: () => this.setState({ adminTab: 'members' }),
