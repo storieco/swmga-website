@@ -33,6 +33,8 @@ input,select,textarea,button{font:inherit}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 details[open] .chev{transform:rotate(45deg)}
+.soc{transition:background .2s,color .2s}
+.soc:hover{background:#D9A867 !important;color:#17110C !important}
 .faq-item{transition:box-shadow .2s ease,border-color .2s ease}
 .faq-item:hover{box-shadow:0 8px 24px rgba(42,33,26,0.08) !important}
 .faq-item[open]{border-left-color:#D9A867 !important;box-shadow:0 10px 30px rgba(42,33,26,0.10) !important}
@@ -146,8 +148,11 @@ details[open] .chev{transform:rotate(45deg)}
 <a href="/safety/" style="color: #A8957E">Safety</a>
 <a href="/faq/" style="color: #A8957E">FAQ</a>
 <a href="/members/" data-page="members" style="color: #A8957E">Hunter member login</a>
-<a href="https://www.facebook.com/swmnga" style="color: #A8957E">Facebook</a>
 </nav>
+<div aria-label="Follow us" style="display: flex; align-items: center; gap: 12px">
+<span style="font-size: 13px; color: #A8957E">Follow us</span>
+<a href="https://www.facebook.com/swmnga" target="_blank" rel="noopener" aria-label="SWMNGA on Facebook" class="soc" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(217,168,103,0.45); display: inline-flex; align-items: center; justify-content: center; color: #D9A867"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.5-1.3 1.4-1.3H17V2.2C16.6 2.1 15.4 2 14.2 2 11.6 2 10 3.6 10 6.4v2.1H7.2V12H10v10h4V12h2.8l.5-3.5H14z"></path></svg></a>
+</div>
 </div>
 </footer>
 
@@ -701,8 +706,11 @@ details[open] .chev{transform:rotate(45deg)}
 <a href="/safety/" onClick="{{tabStandards}}" style="color: #A8957E">Safety</a>
 <a href="/faq/" onClick="{{tabFaq}}" style="color: #A8957E">FAQ</a>
 <a href="/members/" data-page="members" style="color: #A8957E">Hunter member login</a>
-<a href="https://www.facebook.com/swmnga" style="color: #A8957E">Facebook</a>
 </nav>
+<div aria-label="Follow us" style="display: flex; align-items: center; gap: 12px">
+<span style="font-size: 13px; color: #A8957E">Follow us</span>
+<a href="https://www.facebook.com/swmnga" target="_blank" rel="noopener" aria-label="SWMNGA on Facebook" class="soc" style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(217,168,103,0.45); display: inline-flex; align-items: center; justify-content: center; color: #D9A867"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.5-1.3 1.4-1.3H17V2.2C16.6 2.1 15.4 2 14.2 2 11.6 2 10 3.6 10 6.4v2.1H7.2V12H10v10h4V12h2.8l.5-3.5H14z"/></svg></a>
+</div>
 </div>
 </footer>
 
