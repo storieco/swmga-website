@@ -778,6 +778,7 @@ details[open] .chev{transform:rotate(45deg)}
 <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #CDBBA3">Phone<input type="tel" name="phone" style="min-height: 46px; padding: 0; border: none; border-bottom: 1px solid #5A4632; background: transparent; color: #FFFFFF; font-size: 17px; letter-spacing: 0; text-transform: none"></label>
 <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #CDBBA3">County<input type="text" name="county" required style="min-height: 46px; padding: 0; border: none; border-bottom: 1px solid #5A4632; background: transparent; color: #FFFFFF; font-size: 17px; letter-spacing: 0; text-transform: none"></label>
 <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #CDBBA3">Property type<select name="type" style="min-height: 46px; padding: 0; border: none; border-bottom: 1px solid #5A4632; background: #1E1610; color: #FFFFFF; font-size: 17px; letter-spacing: 0; text-transform: none"><option>Private residence</option><option>HOA or community</option><option>Farm or rural tract</option><option>Golf course</option><option>Business, school or institution</option><option>Municipal property</option></select></label>
+<label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #CDBBA3">How did you hear about us?<select name="heard" required style="min-height: 46px; padding: 0; border: none; border-bottom: 1px solid #5A4632; background: #1E1610; color: #FFFFFF; font-size: 17px; letter-spacing: 0; text-transform: none"><option value="">Choose one</option><option>Google or web search</option><option>Facebook</option><option>Instagram</option><option>TikTok</option><option>Nextdoor</option><option>Friend, neighbor or family</option><option>HOA or property manager</option><option>Georgia DNR</option><option>Saw our hunters or truck</option><option>Other</option></select></label>
 <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #CDBBA3">What are you seeing?<textarea name="message" rows="3" style="padding: 10px 0; border: none; border-bottom: 1px solid #5A4632; background: transparent; color: #FFFFFF; font-size: 17px; letter-spacing: 0; text-transform: none; resize: vertical"></textarea></label>
 <input type="hidden" name="bot-field" value=""><sc-if value="{{formErr}}"><p role="alert" style="grid-column: 1 / -1; margin: 0; color: #F0C9A0">{{formErr}}</p></sc-if>
 <button type="submit" style="justify-self: start; min-height: 54px; padding: 0 34px; border: none; border-radius: 999px; background: {{gold}}; color: #1E1610; font-weight: 600; font-size: 16px; cursor: pointer">Submit request</button>
@@ -879,6 +880,7 @@ details[open] .chev{transform:rotate(45deg)}
 <label style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px">Phone<input name="phone" type="tel" required autocomplete="tel" style="min-height: 46px; padding: 0 14px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"></label>
 <label style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px">Home county<input name="county" type="text" required style="min-height: 46px; padding: 0 14px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"></label>
 <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px">Years of bowhunting experience<select name="experience" style="min-height: 46px; padding: 0 14px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"><option>Less than 2 years</option><option>2 to 5 years</option><option>5 to 10 years</option><option>More than 10 years</option></select></label>
+<label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px">How did you hear about us?<select name="heard_about" required style="min-height: 46px; padding: 0 14px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"><option value="">Choose one</option><option>Google or web search</option><option>Facebook</option><option>Instagram</option><option>TikTok</option><option>Nextdoor</option><option>Friend, neighbor or family</option><option>HOA or property manager</option><option>Georgia DNR</option><option>Saw our hunters or truck</option><option>Other</option></select></label>
 <label style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px">Create a password (8+ characters)<input name="password" type="password" required minlength="8" autocomplete="new-password" style="min-height: 46px; padding: 0 14px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font-weight: 400"></label>
 <fieldset style="grid-column: 1 / -1; margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
 <legend style="font-weight: 600; margin-bottom: 6px">Before you apply</legend>
@@ -1076,18 +1078,19 @@ details[open] .chev{transform:rotate(45deg)}
 </sc-if>
 
 <sc-if value="{{adminMembers}}">
+<sc-if value="{{reviewing}}"><div style="background: #FFFFFF; border: 2px solid #D9A867; border-radius: 20px; padding: 22px 24px; margin-bottom: 14px"><div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap"><h3 style="margin: 0; font-family: Jost, sans-serif; font-weight: 400; font-size: 24px">Review {{reviewName}}</h3><span style="font-size: 13px; color: #6B5E52">{{reviewEmail}}</span></div><div style="font-size: 13px; font-weight: 600; margin: 16px 0 8px">Set status</div><div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" data-for="reviewChoices" data-as="c" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="min-height: 38px; padding: 0 16px; border-radius: 999px; font-weight: 600; cursor: pointer; border: 2px solid {{c.border}}; background: {{c.bg}}; color: {{c.color}}">{{c.label}}</button></div><label style="display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; margin-top: 16px">Comment {{reviewNoteHint}}<textarea rows="3" maxlength="2000" onInput="{{reviewInput}}" placeholder="Why this status? Only admins can see this." style="padding: 10px 12px; border: 1px solid #E2D9CB; border-radius: 10px; background: #FBF9F5; font: inherit; font-weight: 400; resize: vertical"></textarea></label><div style="display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap"><button type="button" onClick="{{saveReview}}" style="min-height: 42px; padding: 0 22px; border: none; background: #3A2A1E; color: #FFFFFF; border-radius: 999px; font-weight: 600; cursor: pointer">Save status</button><button type="button" onClick="{{cancelReview}}" style="min-height: 36px; padding: 0 14px; border: 1px solid #E2D9CB; background: #FFFFFF; color: #3A2A1E; border-radius: 999px; font-weight: 600; cursor: pointer; min-height: 42px">Cancel</button></div><sc-if value="{{hasHistory}}"><div style="margin-top: 20px; border-top: 1px dashed #E2D9CB; padding-top: 14px"><div style="font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #8F5F2B; font-weight: 600; margin-bottom: 8px">History</div><div data-for="reviewHistory" data-as="h" style="font-size: 13px; line-height: 1.5; padding: 6px 0; border-bottom: 1px solid #F3EEE6"><b>{{h.status}}</b> <span style="color: #6B5E52">{{h.when}} by {{h.by}}</span><div style="color: #3A2A1E">{{h.note}}</div></div></div></sc-if></div></sc-if>
 <div style="position: relative; overflow-x: auto; background: #FFFFFF; border-radius: 20px">
 <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px">
 <thead><tr style="text-align: left; color: #6B5E52; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em"><th scope="col" style="padding: 14px 18px">Member</th><th scope="col" style="padding: 14px 18px">County</th><th scope="col" style="padding: 14px 18px">Licenses</th><th scope="col" style="padding: 14px 18px">Hunter ed</th><th scope="col" style="padding: 14px 18px">Proficiency</th><th scope="col" style="padding: 14px 18px">Status</th><th scope="col" style="padding: 14px 18px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th></tr></thead>
 <tbody>
 <tr data-for="memberRows" data-as="m" style="border-top: 1px solid #EFE9DF">
-<td style="padding: 14px 18px"><div style="font-weight: 600">{{m.name}}</div><div style="font-size: 12px; color: #6B5E52">{{m.exp}} experience &#183; {{m.email}} &#183; {{m.phone}}</div></td>
+<td style="padding: 14px 18px"><div style="font-weight: 600">{{m.name}}</div><div style="font-size: 12px; color: #6B5E52">{{m.exp}} experience &#183; {{m.email}} &#183; {{m.phone}}</div><sc-if value="{{m.heard}}"><div style="font-size: 12px; color: #8F5F2B">Heard about us: {{m.heard}}</div></sc-if></td>
 <td style="padding: 14px 18px">{{m.county}}</td>
 <td style="padding: 14px 18px">{{m.license}}</td>
 <td style="padding: 14px 18px">{{m.hunterEd}}</td>
 <td style="padding: 14px 18px">{{m.prof}}</td>
-<td style="padding: 14px 18px"><span style="background: {{m.badgeBg}}; color: {{m.badgeColor}}; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px">{{m.status}}</span></td>
-<td style="padding: 14px 18px; text-align: right"><sc-if value="{{m.pending}}"><button type="button" onClick="{{m.approve}}" style="min-height: 36px; padding: 0 14px; border: none; background: #2F5D3A; color: #FFFFFF; border-radius: 999px; font-weight: 600; cursor: pointer">Approve</button></sc-if></td>
+<td style="padding: 14px 18px; max-width: 260px"><span style="background: {{m.badgeBg}}; color: {{m.badgeColor}}; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap">{{m.status}}</span><sc-if value="{{m.hasNote}}"><div style="font-size: 12px; color: #6B5E52; margin-top: 6px; line-height: 1.4">{{m.noteLine}}</div></sc-if></td>
+<td style="padding: 14px 18px; text-align: right"><button type="button" onClick="{{m.review}}" style="min-height: 36px; padding: 0 14px; border: 1px solid #E2D9CB; background: #FFFFFF; color: #3A2A1E; border-radius: 999px; font-weight: 600; cursor: pointer">Review</button></td>
 </tr>
 </tbody>
 </table>
@@ -1295,7 +1298,8 @@ class Component extends DCLogic {
     this.setState({ me: me, role: me.role });
     if (me.role === 'admin') { this.setState({ screen: 'admin' }); this.loadAdmin(); }
     else if (me.status === 'Approved') { this.setState({ screen: 'pending', pendingTitle: 'You are an approved hunter.', showSteps: false, pendingText: 'Welcome to SWMNGA. An admin will contact you directly when you are assigned to a property, with the property rules, stand locations and access details.' }); }
-    else if (me.status === 'Declined') { this.setState({ screen: 'pending', pendingTitle: 'Request not approved.', showSteps: false, pendingText: 'Your membership request was not approved. Email swmga.rs@gmail.com with any questions.' }); }
+    else if (me.status === 'Denied' || me.status === 'Declined') { this.setState({ screen: 'pending', pendingTitle: 'Request not approved.', showSteps: false, pendingText: 'Your membership request was not approved. Email swmga.rs@gmail.com with any questions.' }); }
+    else if (me.status === 'On hold') { this.setState({ screen: 'pending', pendingTitle: 'Your request is on hold.', showSteps: false, pendingText: 'An SWMNGA admin has put your membership request on hold for now. Email swmga.rs@gmail.com with any questions.' }); }
     else { this.setState({ screen: 'pending', pendingTitle: 'Your request is in review.', showSteps: true, pendingText: 'Thanks for applying. An SWMNGA admin will verify your licenses and reach out about your background check, interview and shooting test. Sign in again any time to check your status.' }); }
   }
   mapContract(c) { return { id: c.code, dbId: c.id, name: c.name, county: c.county || '', type: c.type || '', acres: c.acres || 0, season: c.season || '', slots: c.slots || 0, filled: c.filled || 0, status: c.status, notes: c.notes || '' }; }
@@ -1309,18 +1313,19 @@ class Component extends DCLogic {
       apps: a.data.map((x) => ({ id: x.id, contractId: x.contracts ? x.contracts.code : '', member: 'You', date: fmtDate(x.created_at), status: x.status })) });
   }
   async loadAdmin() {
-    const [c, a, m] = await Promise.all([
+    const [c, a, m, rv] = await Promise.all([
       sb.from('contracts').select('*').order('id'),
       sb.from('applications').select('id,status,created_at,availability,note,contracts(code,name),profiles(full_name,email)').order('created_at', { ascending: false }),
-      sb.from('profiles').select('*').neq('role', 'admin').order('created_at', { ascending: false })
+      sb.from('profiles').select('*').neq('role', 'admin').order('created_at', { ascending: false }),
+      sb.from('member_reviews').select('member_id,status,note,reviewer_email,created_at').order('created_at', { ascending: false })
     ]);
     if (c.error || a.error || m.error) { this.notify('Could not load admin data. Please refresh.', true); return; }
     this.setState({ contracts: c.data.map((x) => this.mapContract(x)),
       apps: a.data.map((x) => ({ id: x.id, contractId: x.contracts ? x.contracts.code : '', member: (x.profiles && (x.profiles.full_name || x.profiles.email)) || 'Member', date: fmtDate(x.created_at), status: x.status })),
-      members: m.data.map((p) => ({ id: p.id, name: p.full_name || p.email, email: p.email || '', phone: p.phone || '', county: p.county || '', exp: p.experience || 'Unknown', license: p.agreed_terms ? 'Self-reported' : 'Not given', hunterEd: p.agreed_terms ? 'Self-reported' : 'Not given', prof: p.proficiency, status: p.status })) });
+      members: m.data.map((p) => ({ id: p.id, name: p.full_name || p.email, email: p.email || '', phone: p.phone || '', county: p.county || '', exp: p.experience || 'Unknown', license: p.agreed_terms ? 'Self-reported' : 'Not given', hunterEd: p.agreed_terms ? 'Self-reported' : 'Not given', prof: p.proficiency, heard: p.heard_about || '', status: p.status, history: (rv && rv.data ? rv.data : []).filter((h) => h.member_id === p.id).map((h) => ({ status: h.status, note: h.note || '', by: (h.reviewer_email || 'admin').split('@')[0], when: fmtDate(h.created_at) })) })) });
   }
   badge(status) {
-    const m = { Open: ['#E3EFE5', '#2F5D3A'], Full: ['#F5EEE3', '#7A4F22'], Closed: ['#EEEAE4', '#5A4E44'], Pending: ['#FBF0DA', '#7A4F22'], Approved: ['#E3EFE5', '#2F5D3A'], Declined: ['#F7E4E0', '#8A3F2A'] };
+    const m = { Open: ['#E3EFE5', '#2F5D3A'], Full: ['#F5EEE3', '#7A4F22'], Closed: ['#EEEAE4', '#5A4E44'], Pending: ['#FBF0DA', '#7A4F22'], Approved: ['#E3EFE5', '#2F5D3A'], Declined: ['#F7E4E0', '#8A3F2A'], Denied: ['#F7E4E0', '#8A3F2A'], 'On hold': ['#E4ECF5', '#2D4E73'] };
     return m[status] || ['#EEEAE4', '#5A4E44'];
   }
   renderVals() {
@@ -1360,6 +1365,7 @@ class Component extends DCLogic {
         remove: async () => { const { error } = await sb.rpc('unassign_hunter', { p_assignment: a.id }); if (error) return this.notify(error.message, true); this.notify(a.member + ' removed from ' + (c.name || 'the property') + '.'); this.loadAdmin(); } });
     };
     const myApps = st.role === 'admin' ? [] : st.apps.map(decoApp);
+    const revM = st.reviewId ? st.members.find((x) => x.id === st.reviewId) : null;
     const at = st.adminTab;
     const counties = Array.from(new Set(st.contracts.filter((c) => c.status !== 'Closed').map((c) => c.county).filter(Boolean))).sort();
     const first = st.me && st.me.full_name ? ', ' + st.me.full_name.split(' ')[0] : '';
@@ -1396,10 +1402,10 @@ class Component extends DCLogic {
         const fd = new FormData(e.target);
         this.notify('Sending your request...');
         const { data, error } = await sb.auth.signUp({ email: String(fd.get('email')).trim(), password: String(fd.get('password')),
-          options: { emailRedirectTo: location.origin + '/?members=1', data: { full_name: fd.get('full_name'), phone: fd.get('phone'), county: fd.get('county'), experience: fd.get('experience'), agreed_terms: true } } });
+          options: { emailRedirectTo: location.origin + '/?members=1', data: { full_name: fd.get('full_name'), phone: fd.get('phone'), county: fd.get('county'), experience: fd.get('experience'), heard_about: fd.get('heard_about'), agreed_terms: true } } });
         if (error) return this.notify('Could not submit: ' + error.message, true);
         try {
-          const mf = { full_name: String(fd.get('full_name') || ''), email: String(fd.get('email') || ''), phone: String(fd.get('phone') || ''), county: String(fd.get('county') || ''), experience: String(fd.get('experience') || '') };
+          const mf = { full_name: String(fd.get('full_name') || ''), email: String(fd.get('email') || ''), phone: String(fd.get('phone') || ''), county: String(fd.get('county') || ''), experience: String(fd.get('experience') || ''), heard_about: String(fd.get('heard_about') || '') };
           fetch(window.SB_URL + '/functions/v1/submit-request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: 'membership', fields: mf }) }).catch(() => {});
           } catch (e2) {}
         if (data.session) { this.setState({ toast: '' }); this.afterAuth(data.session); }
@@ -1461,14 +1467,26 @@ class Component extends DCLogic {
       },
       appRows: st.role === 'admin' ? st.apps.map(decoApp) : [],
       memberRows: st.members.map((m) => {
-        const b = this.badge(m.status);
+        const b = this.badge(m.status); const last = m.history && m.history[0];
         return Object.assign({}, m, { badgeBg: b[0], badgeColor: b[1], pending: m.status === 'Pending',
-          approve: async () => {
-            const { error } = await sb.from('profiles').update({ status: 'Approved' }).eq('id', m.id);
-            if (error) return this.notify(error.message, true);
-            this.notify(m.name + ' approved as a member.'); this.loadAdmin();
-          } });
-      })
+          hasNote: !!(last && last.note), noteLine: last && last.note ? '\u201c' + last.note + '\u201d (' + last.when + ')' : '',
+          review: () => { this._reviewNote = ''; this.setState({ reviewId: m.id, reviewStatus: m.status }); } });
+      }),
+      reviewing: !!revM, reviewName: revM ? revM.name : '', reviewEmail: revM ? revM.email : '',
+      reviewNoteHint: (st.reviewStatus === 'On hold' || st.reviewStatus === 'Denied') ? '(required)' : '(optional)',
+      reviewChoices: ['Approved', 'On hold', 'Denied', 'Pending'].map((k) => { const on = st.reviewStatus === k; const bb = this.badge(k);
+        return { label: k, on: on ? 'true' : 'false', bg: on ? bb[1] : '#FFFFFF', color: on ? '#FFFFFF' : bb[1], border: bb[1], pick: () => this.setState({ reviewStatus: k }) }; }),
+      reviewHistory: revM ? revM.history : [], hasHistory: !!(revM && revM.history && revM.history.length),
+      reviewInput: (e) => { this._reviewNote = e && e.target ? e.target.value : ''; },
+      cancelReview: () => { this._reviewNote = ''; this.setState({ reviewId: null }); },
+      saveReview: async () => {
+        const note = (this._reviewNote || '').trim(); const k = st.reviewStatus;
+        if ((k === 'On hold' || k === 'Denied') && !note) return this.notify('Please add a comment saying why.', true);
+        const { error } = await sb.rpc('set_member_status', { p_member: st.reviewId, p_status: k, p_note: note });
+        if (error) return this.notify(error.message, true);
+        this._reviewNote = ''; this.setState({ reviewId: null });
+        this.notify((revM ? revM.name : 'Member') + ' set to ' + k + '.'); this.loadAdmin();
+      }
     };
   }
 }
