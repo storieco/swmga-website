@@ -1039,7 +1039,7 @@ function patch(parent, oldN, newN){
   if (!oldN) { parent.appendChild(newN); walkBind(newN); return; }
   if (oldN.nodeType !== newN.nodeType || oldN.nodeName !== newN.nodeName) { parent.replaceChild(newN, oldN); walkBind(newN); return; }
   if (oldN.nodeType === 3) { if (oldN.data !== newN.data) oldN.data = newN.data; return; }
-  for (const a of [...oldN.attributes]) if (!newN.hasAttribute(a.name)) oldN.removeAttribute(a.name);
+  for (const a of [...oldN.attributes]) if (!newN.hasAttribute(a.name) && !(a.name === 'open' && oldN.tagName === 'DETAILS')) oldN.removeAttribute(a.name);
   for (const a of newN.attributes) if (oldN.getAttribute(a.name) !== a.value) oldN.setAttribute(a.name, a.value);
   if ('__value' in newN) { const v = newN.__value == null ? '' : String(newN.__value); if (oldN.value !== v && document.activeElement !== oldN) oldN.value = v; }
   oldN.__h = newN.__h; bindEvents(oldN);
